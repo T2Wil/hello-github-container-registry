@@ -21,14 +21,14 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
       -
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2.3.0
         with:
           push: true
-          tags: t2wil/testi:0.1.1
+          tags: test:0.1.1
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
