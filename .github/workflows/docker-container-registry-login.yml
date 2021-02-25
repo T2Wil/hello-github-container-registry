@@ -19,7 +19,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       
       - uses: actions/checkout@v2
-      - run: echo ${{ toJSON(github) }}
+      
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
       
       - run: |
           echo "initialized by ${{ github.actor }}" 
