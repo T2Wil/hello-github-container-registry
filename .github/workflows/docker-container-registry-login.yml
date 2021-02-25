@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       
       - uses: actions/checkout@v2
-      - run: echo "$GITHUB_CONTEXT"
+      - run: echo {{ github }}
       
       - run: |
           echo "initialized by ${{ github.actor }}" 
