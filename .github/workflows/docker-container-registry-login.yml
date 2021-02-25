@@ -16,3 +16,6 @@ jobs:
           registry: docker.pkg.github.com
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - 
+        name: build docker image
+        run: docker build -t docker.pkg.github.com/t2wil/hello-github-container-registry/hello-git-actions:1.0.0
