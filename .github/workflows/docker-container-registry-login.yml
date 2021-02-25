@@ -17,9 +17,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
       - name: build docker image
-        run: |
-          echo "hi there"
-          pwd
-          ls -al
-          ls ../
-          docker build -t docker.pkg.github.com/t2wil/hello-github-container-registry/hello-git-actions:1.0.2 .
+        run: docker build -t docker.pkg.github.com/t2wil/hello-github-container-registry/hello-git-actions:1.0.2 .
+      - name: push image to github package
+        run: docker push docker.pkg.github.com/t2wil/hello-github-container-registry/hello-git-actions:1.0.2
+
