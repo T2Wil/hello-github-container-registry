@@ -17,14 +17,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           
       - name: set environment variable
-        run: echo "REPO_OWNER=${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]' " >> ${{ github }}
-      
-      - uses: actions/checkout@v2
-      
-      - run: |
-          echo "initialized by ${{ github.actor }}" 
-        
-      - name: build docker image
-        run: docker build -t docker.pkg.github.com/${{ github.REPO_OWNER }}/${{ github.repository.name }}/${{ github.repository.name }}:1.0.3 .
-      - name: push image to github package
-        run: docker push docker.pkg.github.com/${{ github.repository }}/${{ github.repository.name }}:1.0.3
+        run: python --version
