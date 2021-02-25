@@ -27,14 +27,19 @@ jobs:
         run: |
           echo $RELEASE_VERSION
           echo ${{ env.RELEASE_VERSION }}
+          
+      - name: Display all env variables
+        env:
+          ALL_ENV: ${{ toJSON(env) }}
+        run: echo "$ALL_ENV"
         
-      - name: Set env 2
-        run: echo "GITHUB_OWNER=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
+#       - name: Set env 2
+#         run: echo "GITHUB_OWNER=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
         
-      - name: Print owner name
-        run: |
-          echo $GITHUB_OWNER
-          echo ${{ env.GITHUB_OWNER }}
+#       - name: Print owner name
+#         run: |
+#           echo $GITHUB_OWNER
+#           echo ${{ env.GITHUB_OWNER }}
       
       - run: |
           echo "initialized by ${{ github.actor }}" 
