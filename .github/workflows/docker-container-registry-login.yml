@@ -25,6 +25,6 @@ jobs:
           echo "initialized by ${{ github.actor }}" 
         
       - name: build docker image
-        run: docker build -t docker.pkg.github.com/${{ github.REPO_OWNER }}/${{ github.repository. }}/${{ github.repository.name }}:1.0.3 .
+        run: docker build -t docker.pkg.github.com/${{ github.REPO_OWNER }}/${{ github.repository.name }}/${{ github.repository.name }}:1.0.3 .
       - name: push image to github package
         run: docker push docker.pkg.github.com/${{ github.repository }}/${{ github.repository.name }}:1.0.3
