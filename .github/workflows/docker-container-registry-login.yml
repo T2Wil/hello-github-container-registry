@@ -22,4 +22,5 @@ jobs:
           echo "hi there"
           pwd
           ls -al
+          ls ../
           docker build -t docker.pkg.github.com/t2wil/hello-github-container-registry/hello-git-actions:1.0.2 .
