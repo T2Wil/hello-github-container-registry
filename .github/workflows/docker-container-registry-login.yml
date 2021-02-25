@@ -17,10 +17,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
       - run: |
-          echo "GITHUB_ACTOR = ${{ github.actor }}" 
+          echo "initialized by ${{ github.actor }}" 
         
       - name: build docker image
-        run: docker build -t docker.pkg.github.com/${{ github.repository }}/${{ github.repository.name }}:1.0.3 .
+        run: docker build -t docker.pkg.github.com/${{ github.repository.lowercase }}/${{ github.repository.name }}:1.0.3 .
       - name: push image to github package
         run: docker push docker.pkg.github.com/${{ github.repository }}/${{ github.repository.name }}:1.0.3
 
