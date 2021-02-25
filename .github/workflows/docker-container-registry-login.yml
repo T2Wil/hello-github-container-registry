@@ -18,4 +18,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - 
         name: build docker image
-        run: docker build -t docker.pkg.github.com/t2wil/hello-github-container-registry/hello-git-actions:1.0.1 ../../
+        run: docker build -t docker.pkg.github.com/t2wil/hello-github-container-registry/hello-git-actions:1.0.2 ../../
