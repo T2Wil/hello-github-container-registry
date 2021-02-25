@@ -29,7 +29,7 @@ jobs:
           echo ${{ env.RELEASE_VERSION }}
         
       - name: Set env 2
-        run: echo "GITHUB_OWNER=${ GITHUB_REPOSITORY }" >> $GITHUB_ENV
+        run: echo "GITHUB_OWNER=${GITHUB_REPOSITORY}" >> $GITHUB_ENV
         
       - name: Print owner name
         run: |
