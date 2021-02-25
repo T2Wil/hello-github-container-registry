@@ -19,8 +19,8 @@ jobs:
       - run: |
           echo "GITHUB_ACTOR = ${{ github.actor }}" 
         
-#       - name: build docker image
-#         run: docker build -t docker.pkg.github.com/t2wil/hello-github-container-registry/hello-git-actions:1.0.2 .
-#       - name: push image to github package
-#         run: docker push docker.pkg.github.com/t2wil/hello-github-container-registry/hello-git-actions:1.0.2
+      - name: build docker image
+        run: docker build -t docker.pkg.github.com/${{ github.repository }}/${{ github.repository.name }}:1.0.3 .
+      - name: push image to github package
+        run: docker push docker.pkg.github.com/${{ github.repository }}/${{ github.repository.name }}:1.0.3
 
