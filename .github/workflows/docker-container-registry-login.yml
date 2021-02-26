@@ -25,10 +25,10 @@ jobs:
         env:
           REPO_OWNER_NAME: ${{ github.repository }}
         run: |
-          REPO_OWNER=$(echo "$REPO_OWNER_NAME" | awk '$1=$1' FS="/" OFS=" " | awk '{ print $1}' | tr '[:upper:]' '[:lower:]')\
-          REPO_NAME=$(echo "$REPO_OWNER_NAME" | awk '$1=$1' FS="/" OFS=" " | awk '{ print $2}')\
-          echo REPO_OWNER\
-          echo REPO_NAME
+          REPO_OWNER=$(echo "$REPO_OWNER_NAME" | awk '$1=$1' FS="/" OFS=" " | awk '{ print $1}' | tr '[:upper:]' '[:lower:]')
+          REPO_NAME=$(echo "$REPO_OWNER_NAME" | awk '$1=$1' FS="/" OFS=" " | awk '{ print $2}')
+          echo $REPO_OWNER
+          echo $REPO_NAME
     
 #       - name: Set tag env
 #         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
