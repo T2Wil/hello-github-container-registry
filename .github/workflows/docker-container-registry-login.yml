@@ -38,10 +38,10 @@ jobs:
 #           echo $RELEASE_VERSION
 #           echo ${{ env.RELEASE_VERSION }}
           
-#       - name: Display all env variables
-#         env:
-#           ALL_ENV: ${{ toJSON(env) }}
-#         run: echo "$ALL_ENV"
+      - name: Display all env variables
+        env:
+          ALL_ENV: ${{ toJSON(env) }}
+        run: echo "$ALL_ENV"
         
       
       - run: |
