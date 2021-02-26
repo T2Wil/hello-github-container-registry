@@ -50,6 +50,9 @@ jobs:
           echo "initialized by ${{ github.actor }}" 
         
       - name: build docker image
-        run: docker build -t docker.pkg.github.com/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}/${{ env.REPO_NAME }}:${{ env.RELEASE_VERSION }} .
+        run: |
+          pwd
+          ls -al
+          docker build -t docker.pkg.github.com/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}/${{ env.REPO_NAME }}:${{ env.RELEASE_VERSION }} .
       - name: push image to github package
         run: docker push docker.pkg.github.com/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}/${{ env.REPO_NAME }}:${{ env.RELEASE_VERSION }}
