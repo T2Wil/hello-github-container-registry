@@ -2,11 +2,11 @@ name: ci
 
 on:
   push:
-#     tags:
-#     - '*'
+    tags:
+    - '*'
     
-    branches:
-      - 'master'
+#     branches:
+#       - 'master'
 
 jobs:
   docker:
