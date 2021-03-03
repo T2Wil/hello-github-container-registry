@@ -1,4 +1,4 @@
-name: Docker Build and Push demo-ui
+name: Docker Build and Push Demo-UI
 
 on:
   push:
