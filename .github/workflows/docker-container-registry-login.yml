@@ -11,6 +11,8 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    env:  
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - name: Login to github packages
         uses: docker/login-action@v1
@@ -51,11 +53,12 @@ jobs:
         run: |
           echo "inside prod"
           
-      - name: send slack notification
-        env:  
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        with: 
+      - name: slack notification 
+        uses: act10ns/slack@v1
+        with:
           status: ${{ job.status }}
+          channel: '#project-githubactions-status'
+        if: always()
 
 
       
