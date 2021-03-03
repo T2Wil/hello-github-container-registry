@@ -61,6 +61,11 @@ jobs:
         if: job.status == 'success'
         run: |
           success_msg="production build and image creation completed successfully"
+      
+      - name: neither uat nor prod
+        if: ${{ !(contains(env.RELEASE_VERSION,'-production')) && !(contains(env.RELEASE_VERSION,'-uat')) }}
+        run: 
+          echo "neither uat nore prod"
           
       - name: slack notification 
         uses: act10ns/slack@v1
