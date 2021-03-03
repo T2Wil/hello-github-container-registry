@@ -56,12 +56,12 @@ jobs:
       - name: test the text
         if: job.status == 'success'
         run: |
-          echo "production build and image creation completed successfully"
+          success_msg="production build and image creation completed successfully"
           
       - name: slack notification 
         uses: act10ns/slack@v1
         with:
-          status: ${{ job.status }}
+          status: ${success_msg}
           steps: ${{ toJson(steps) }}
           channel: '#project-githubactions-status'
         if: always()
