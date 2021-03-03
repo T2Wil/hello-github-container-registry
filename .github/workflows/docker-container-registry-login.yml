@@ -40,13 +40,13 @@ jobs:
           echo ${{ env.RELEASE_VERSION }} | grep -E "*-uat$"
         
       - name: test uat
-        if: (contains(env.RELEASE_VERSION,"-uat" ))
+        if: contains(env.RELEASE_VERSION,'-uat')
 #         if: env.RELEASE_VERSION | grep -E "*-uat$"
         run: |
           echo "inside uat"
           
       - name: test prod
-        if: (contains(env.RELEASE_VERSION,"-production"))
+        if: contains(env.RELEASE_VERSION,'-production')
 #         if: env.RELEASE_VERSION | grep -E "*-production$"
         run: |
           echo "inside prod"
