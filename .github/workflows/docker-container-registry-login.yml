@@ -37,11 +37,11 @@ jobs:
         
       - name: test uat
         run: |
-          echo ${{ env.RELEASE_VERSION }} | grep -E "*-uat$")
+          echo ${{ env.RELEASE_VERSION }} | grep -E "*-uat$"
           
       - name: test prod
         run: |
-          echo ${{ env.RELEASE_VERSION }} | grep -E "*-production$")
+          echo ${{ env.RELEASE_VERSION }} | grep -E "*-production$"
 
       
 #       - name: Print release version
