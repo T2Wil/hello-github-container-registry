@@ -50,6 +50,13 @@ jobs:
 #         if: env.RELEASE_VERSION | grep -E "*-production$"
         run: |
           echo "inside prod"
+          
+      - name: send slack notification
+        env:  
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with: 
+          status: ${{ job.status }}
+
 
       
 #       - name: Print release version
@@ -72,4 +79,7 @@ jobs:
 #           ls -al
 #           docker build -t docker.pkg.github.com/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}/${{ env.REPO_NAME }}:${{ env.RELEASE_VERSION }} .
 #       - name: push image to github package
+    
+    
+
 #         run: docker push docker.pkg.github.com/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}/${{ env.REPO_NAME }}:${{ env.RELEASE_VERSION }}
