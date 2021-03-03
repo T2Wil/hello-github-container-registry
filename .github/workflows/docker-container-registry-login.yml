@@ -52,6 +52,11 @@ jobs:
 #         if: env.RELEASE_VERSION | grep -E "*-production$"
         run: |
           echo "inside prod"
+      
+      - name: test the text
+        if: job.status == 'success'
+        run: |
+          echo "production build and image creation completed successfully"
           
       - name: slack notification 
         uses: act10ns/slack@v1
@@ -60,6 +65,8 @@ jobs:
           steps: ${{ toJson(steps) }}
           channel: '#project-githubactions-status'
         if: always()
+        
+      
         
       - name: check the status
         run: |
