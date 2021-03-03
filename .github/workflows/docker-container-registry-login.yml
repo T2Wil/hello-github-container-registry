@@ -65,7 +65,7 @@ jobs:
       - name: neither uat nor prod
         if: ${{ !(contains(env.RELEASE_VERSION,'-production')) && !(contains(env.RELEASE_VERSION,'-uat')) }}
         run: |
-          exit "Invalid tag name. tag name should end with either-uat or -production"
+          exit "Invalid tag name. tag name should end with either -uat or -production"
           
       - name: slack notification 
         uses: act10ns/slack@v1
