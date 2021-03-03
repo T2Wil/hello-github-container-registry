@@ -35,6 +35,11 @@ jobs:
       - name: Set released tag in env vars
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
         
+      - name: output
+        run: |
+          echo ${{ env.RELEASE_VERSION }} | grep -E "*-uat$"
+          echo ${{ env.RELEASE_VERSION }} | grep -E "*-production$"
+        
       - name: test uat
 #         if: (contains(${{ env.RELEASE_VERSION }},"-uat" ))
         if: ${{ env.RELEASE_VERSION }} | grep -E "*-uat$"
