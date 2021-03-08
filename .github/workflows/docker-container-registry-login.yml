@@ -14,13 +14,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:  
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}      
+#     env:  
+#         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}      
     steps:
       - uses: act10ns/slack@v1
         with:
           status: starting
-          channel: '#project-githubactions-status'
+          channel: '#slack-channel'
       - name: Login to github packages
         uses: docker/login-action@v1
         with:
@@ -75,7 +75,7 @@ jobs:
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
-          channel: '#project-githubactions-status'
+          channel: '#slack-channel'
         if: always()
         
       
