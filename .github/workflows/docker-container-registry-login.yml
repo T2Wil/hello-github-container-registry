@@ -1,9 +1,12 @@
 name: Docker Build and Push Demo-UI
 
 on:
-  push:
-    tags:
-    - '*'
+  release:
+    types: [published]
+# on:
+#   push:
+#     tags:
+#     - '*'
     
 #     branches:
 #       - 'master'
